@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8'>
+	<title>야구게임</title>
+	<script type="text/javascript">
+		var huns=Math.floor(Math.random()*10);
+		var tens=Math.floor(Math.random()*10);
+		var ones=Math.floor(Math.random()*10);
+
+		var new_num = 0;
+		var ball = 0;
+		var strike = 0;
+
+
+		while (huns == tens){
+			var tens=Math.floor(Math.random()*10);
+		}
+		while (huns == ones || tens == ones){
+			var ones=Math.floor(Math.random()*10);
+		}
+
+		num = String(huns)+String(tens)+String(ones);		// 랜덤 세자리 정수 string형		
+
+	</script>
+
+</head>
+
+<body>	
+	<script type="text/javascript">
+
+		alert("======    야구게임    ======");
+
+		while (strike != 3){
+			ball = 0;
+			strike = 0;
+
+			new_num = prompt('서로 다른 숫자의 세자리 정수를 입력해 주세요.' , 'ex) 951');
+			new_num = String(new_num);				// 세자리 정수 입력받음 string형
+
+			for (var i = 0; i < 3; i++) {			// 숫자가 같으면 ball 1 증가
+				for (var j = 0; j < 3; j++) {
+					if (num[i] == new_num[j]) {
+						ball += 1;
+					}
+				}
+			}
+
+			if (huns == new_num[0]){		// 자릿수까지 같으면 ball 1 감소 strike 1 증가
+				ball -= 1;
+				strike += 1;
+			}
+			if (tens == new_num[1]){
+				ball -= 1;
+				strike += 1;
+			}
+			if (ones == new_num[2]){
+				ball -= 1;
+				strike += 1;
+			}
+			
+			strike = String(strike);
+			ball = String(ball);
+			alert(strike+' strike  '+ ball+' ball');
+		}
+		document.write(num);
+		
+	</script>
+</body>
+</html>
